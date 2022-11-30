@@ -21,7 +21,16 @@ docker compose build --no-cache
 docker compose up -d
 ```
 
-**5. laravel-echo-serverの設定**
+**5. laravelの初期設定**
+```sh
+docker compose exec app bash
+composer install
+cp .env.example .env
+php artisan:key generate
+php artisan:migrate
+```
+
+**6. laravel-echo-serverの設定**
 
 ※ 最初はlaravel-echo-serverの設定が済んでいないので、エラーが発生してecho-serverのコンテナが起動できない
 
@@ -29,7 +38,7 @@ docker compose up -d
 docker compose run echo-server laravel-echo-server init
 ```
 
-以下の通り、設定する
+設定は以下の通り
 ```sh
 ? Do you want to run this server in development mode? Yes
 ? Which port would you like to serve from? 6001
