@@ -15,4 +15,11 @@
         </form>
       </div>
     </body>
+    <script>
+      window.addEventListener('load', (event) => {
+        window.Echo.channel('message-event').listen('MessageEvent', (e) => {
+          console.log(e)
+        })
+      });
+    </script>
 </html>
