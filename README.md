@@ -31,12 +31,10 @@ php artisan migrate
 ```
 
 上記のコマンドを実行したら、http://localhost にアクセスしてください。
-http://localhost
-
 
 **6. laravel-echo-serverの設定**
 
-最初はlaravel-echo-serverの設定が済んでいないため、echo-serverのコンテナが起動できない
+初回コンテナ起動時は、laravel-echo-serverの設定が済んでいないため、echo-serverのコンテナが起動できない
 
 ```sh
 docker compose run echo-server laravel-echo-server init
@@ -59,10 +57,10 @@ laravel-echo-server.jsonが生成されたら、`redis` の設定値を以下の
 
 ```json
 "databaseConfig": {
-		"redis": {
-			"host": "redis",
-			"port": 6379
-		},
+  "redis": {
+    "host": "redis",
+    "port": 6379
+  },
   ...
 },
 ```
