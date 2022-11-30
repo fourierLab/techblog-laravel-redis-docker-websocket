@@ -26,13 +26,17 @@ docker compose up -d
 docker compose exec app bash
 composer install
 cp .env.example .env
-php artisan:key generate
-php artisan:migrate
+php artisan key:generate
+php artisan migrate
 ```
+
+上記のコマンドを実行したら、http://localhost にアクセスしてください。
+http://localhost
+
 
 **6. laravel-echo-serverの設定**
 
-※ 最初はlaravel-echo-serverの設定が済んでいないので、エラーが発生してecho-serverのコンテナが起動できない
+最初はlaravel-echo-serverの設定が済んでいないため、echo-serverのコンテナが起動できない
 
 ```sh
 docker compose run echo-server laravel-echo-server init
@@ -49,4 +53,16 @@ docker compose run echo-server laravel-echo-server init
 ? Do you want to setup cross domain access to the API? No
 ? What do you want this config to be saved as? laravel-echo-server.json
 Configuration file saved. Run laravel-echo-server start to run server.
+```
+
+laravel-echo-server.jsonが生成されたら、`redis` の設定値を以下のように編集
+
+```json
+"databaseConfig": {
+		"redis": {
+			"host": "redis",
+			"port": 6379
+		},
+  ...
+},
 ```
