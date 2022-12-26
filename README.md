@@ -3,12 +3,13 @@
 ## 開発環境構築
 **1. Gitクローン**
 ```sh
-git clone https://github.com/TakanoriIchikawa/docker-laravel-websocket.git docker-laravel-websocket
+git clone https://github.com/fourierLab/techblog-laravel-redis-docker-websocket techblog-laravel-redis-docker-websocket
+
 ```
 
 **2. ディレクトリの移動**
 ```sh
-cd docker-laravel-websocket
+cd techblog-laravel-redis-docker-websocket
 ```
 
 **3. dockerコンテナのビルド**
